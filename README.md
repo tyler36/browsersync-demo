@@ -4,6 +4,7 @@
 - [Requirements](#requirements)
 - [Setup](#setup)
   - [Demo 1: Host with artisan server](#demo-1-host-with-artisan-server)
+  - [DDEV & Laravel mix](#ddev--laravel-mix)
 
 ## Intro
 
@@ -64,3 +65,34 @@ npm run watch
 
 - Visit [http://127.0.0.1:8000](http://127.0.0.1:8000) in browser
 - Update `./resources/views/welcome.blade.php` and confirm browser refreshed.
+
+### DDEV & Laravel mix
+
+- Install NPM packages in DDEV
+
+```shell
+ddev exec npm install
+```
+
+- Add [browsersync](https://laravel-mix.com/docs/4.0/browsersync) to Laravel Mix's `./webpack.mix.js`
+  - Replace `$DDEV_HOSTNAME` with your site's hostname.
+
+```js
+let url = $DDEV_HOSTNAME;
+
+mix.js('resources/js/app.js', 'public/js')
+    .postCss('resources/css/app.css', 'public/css', [
+        //
+    ])
+    .browserSync({
+        proxy: url,
+        host:  url,
+        open:  false,
+    });
+```
+
+- Run the watcher. Note: On the first attempt, Laravel-mix may download additional required packages.
+
+```shell
+ddev exec npm run watch
+```
