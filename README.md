@@ -5,6 +5,8 @@
 - [Setup](#setup)
   - [Demo 1: Host with artisan server](#demo-1-host-with-artisan-server)
   - [DDEV & Laravel mix](#ddev--laravel-mix)
+- [Errors](#errors)
+  - ['400 Bad Request: The plain HTTP request was sent to HTTPS port'](#400-bad-request-the-plain-http-request-was-sent-to-https-port)
 
 ## Intro
 
@@ -94,5 +96,27 @@ mix.js('resources/js/app.js', 'public/js')
 - Run the watcher. Note: On the first attempt, Laravel-mix may download additional required packages.
 
 ```shell
-ddev exec npm run watch
+$ ddev exec npm run watch
+webpack compiled successfully
+[Browsersync] Proxying: http://browsersync-demo.ddev.site
+[Browsersync] Access URLs:
+ ---------------------------------------------------
+       Local: http://localhost:3000
+    External: http://browsersync-demo.ddev.site:3000
+ ---------------------------------------------------
+          UI: http://localhost:3001
+ UI External: http://localhost:3001
 ```
+
+- Due to the the way DDEV router works you must access the site via HTTPS
+  - EG. `https://browsersync-demo.ddev.site:3000`
+
+## Errors
+
+### '400 Bad Request: The plain HTTP request was sent to HTTPS port'
+
+- Access the site via HTTPS, and **not** the HTTP address shown.EG.
+  - ❌ `http://browsersync-demo.ddev.site:3000`
+  - ✅ `https://browsersync-demo.ddev.site:3000`
+
+This is due to how DDEV router works.
