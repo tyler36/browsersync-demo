@@ -3,8 +3,6 @@
 - [Intro](#intro)
 - [Requirements](#requirements)
 - [Setup](#setup)
-  - [Demo 1: Host with artisan server](#demo-1-host-with-artisan-server)
-  - [DDEV & Laravel mix](#ddev--laravel-mix)
 - [Errors](#errors)
   - ['400 Bad Request: The plain HTTP request was sent to HTTPS port'](#400-bad-request-the-plain-http-request-was-sent-to-https-port)
 
@@ -23,6 +21,12 @@ It runs BrowserSync through [`laravel-mix`](https://laravel-mix.com/).
 ## Setup
 
 - Clone project
+
+```shell
+git clone https://github.com/tyler36/browsersync-demo
+cd browsersync-demo
+```
+
 - Start DDEV
 
 ```shell
@@ -33,47 +37,14 @@ ddev start
 
 ```shell
 ddev composer install
-ddev ssh
-npm install
-```
-
-- Copy `.env.example` to `.env`
-
-```shell
-cp .env.example .env
-```
-
-- Add Laravel key
-
-```shell
-php artisan key:generate
-```
-
-### Demo 1: Host with artisan server
-
-Confirm browser sync works on host.
-
-- Run Laravel's serer
-
-```shell
-php artisan serve
-```
-
-- In a seperate terminal, run laravel-mix watcher
-
-```shell
-npm run watch
-```
-
-- Visit [http://127.0.0.1:8000](http://127.0.0.1:8000) in browser
-- Update `./resources/views/welcome.blade.php` and confirm browser refreshed.
-
-### DDEV & Laravel mix
-
-- Install NPM packages in DDEV
-
-```shell
 ddev exec npm install
+```
+
+- Configure Laravel environment
+
+```shell
+ddev exec cp .env.example .env
+ddev exec php artisan key:generate
 ```
 
 - Add [browsersync](https://laravel-mix.com/docs/4.0/browsersync) to Laravel Mix's `./webpack.mix.js`
