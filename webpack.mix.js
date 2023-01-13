@@ -13,11 +13,9 @@ const mix = require('laravel-mix');
 let url = 'browsersync-demo.ddev.site';
 
 mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ])
+    .postCss('resources/css/app.css', 'public/css', [require('tailwindcss')])
     .browserSync({
         proxy: url,
-        host:  url,
-        open:  false,
+        host: url,
+        open: false,
     });
