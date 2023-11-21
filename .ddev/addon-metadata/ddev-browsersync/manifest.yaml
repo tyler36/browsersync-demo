@@ -1,0 +1,11 @@
+name: ddev-browsersync
+repository: ddev/ddev-browsersync
+version: 2.5.0
+install_date: "2023-10-10T11:40:39+09:00"
+project_files:
+    - docker-compose.browsersync.yaml
+    - web-build/Dockerfile.ddev-browsersync
+    - browser-sync.js
+    - commands/web/browsersync
+global_files: []
+removal_actions: []
