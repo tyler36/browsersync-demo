@@ -37,14 +37,14 @@ ddev start
 
 ```shell
 ddev composer install
-ddev exec npm install
+ddev npm install
 ```
 
 - Configure Laravel environment
 
 ```shell
 ddev exec cp .env.example .env
-ddev exec php artisan key:generate
+ddev artisan key:generate
 ```
 
 - Add [browsersync](https://laravel-mix.com/docs/4.0/browsersync) to Laravel Mix's `./webpack.mix.js`
@@ -67,7 +67,7 @@ mix.js('resources/js/app.js', 'public/js')
 - Run the watcher. Note: On the first attempt, Laravel-mix may download additional required packages.
 
 ```shell
-$ ddev exec npm run watch
+$ ddev npm run watch
 webpack compiled successfully
 [Browsersync] Proxying: http://browsersync-demo.ddev.site
 [Browsersync] Access URLs:
