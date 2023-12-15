@@ -51,7 +51,7 @@ ddev artisan key:generate
   - Replace `$DDEV_HOSTNAME` with your site's hostname.
 
 ```js
-let url = $DDEV_HOSTNAME;
+let url = 'browsersync-demo.ddev.site';
 
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
