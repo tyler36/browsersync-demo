@@ -3,6 +3,9 @@
 - [Intro](#intro)
 - [Requirements](#requirements)
 - [Setup](#setup)
+- [Usage](#usage)
+  - [Via DDEV command](#via-ddev-command)
+  - [Via Laravel-mix](#via-laravel-mix)
 - [Errors](#errors)
   - ['400 Bad Request: The plain HTTP request was sent to HTTPS port'](#400-bad-request-the-plain-http-request-was-sent-to-https-port)
 
@@ -46,6 +49,28 @@ ddev npm install
 ddev exec cp .env.example .env
 ddev artisan key:generate
 ```
+
+## Usage
+
+Below shows 2 different ways can use Browsersync.
+
+### Via DDEV command
+
+Start Browsersync via the DDEV helper command.
+
+```shell
+$ ddev browsersync
+Proxying browsersync on https://browsersync-demo.ddev.site:3000
+[Browsersync] Proxying: http://localhost
+[Browsersync] Watching files...
+[Browsersync] Reloading Browsers...
+```
+
+### Via Laravel-mix
+
+Older Laravel projects used Laravel Mix to compile assets.
+To add Browsersync to Laravel Mix, complete the following steps.
+This is _not_ required if you use the DDEV helper command.
 
 - Add [Browsersync](https://laravel-mix.com/docs/4.0/browsersync) to Laravel Mix's `./webpack.mix.js`
   - Replace `$DDEV_HOSTNAME` with your site's hostname.
