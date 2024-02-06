@@ -4,10 +4,10 @@
 - [Requirements](#requirements)
 - [Setup](#setup)
 - [Usage](#usage)
-  - [Via DDEV command](#via-ddev-command)
-  - [Via Laravel-mix](#via-laravel-mix)
+    - [Via DDEV command](#via-ddev-command)
+    - [Via Laravel-mix](#via-laravel-mix)
 - [Errors](#errors)
-  - ['400 Bad Request: The plain HTTP request was sent to HTTPS port'](#400-bad-request-the-plain-http-request-was-sent-to-https-port)
+    - ['400 Bad Request: The plain HTTP request was sent to HTTPS port'](#400-bad-request-the-plain-http-request-was-sent-to-https-port)
 
 ## Intro
 
@@ -46,8 +46,13 @@ ddev npm install
 - Configure Laravel environment
 
 ```shell
-ddev exec cp .env.example .env
 ddev artisan key:generate
+```
+
+- Restart DDEV to manage settings
+
+```shell
+ddev restart
 ```
 
 ## Usage
